@@ -1,0 +1,20 @@
+name: Quality checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      # After first local npm install, commit package-lock.json and switch this to npm ci.
+      - run: npm install --no-audit --no-fund
+      - run: npm run typecheck
+      - run: npx eslint .
+      - run: npm test
+      - run: npm run build
