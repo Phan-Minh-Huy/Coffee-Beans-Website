@@ -20,13 +20,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <AiBarista />
       <body>
         <CartProvider>
           <Header />
           <main id="main">{children}</main>
           <Footer />
         </CartProvider>
+        <AiBarista />
       </body>
     </html>
   );
