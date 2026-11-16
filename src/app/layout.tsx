@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./srcs/globals.css";
+import "./globals.css";
 import { CartProvider } from "@/components/cart-provider";
 import { AiBarista } from "@/components/ai-barista";
 import { Header } from "@/components/header";
